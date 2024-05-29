@@ -2,6 +2,9 @@
 require_once 'vendor/autoload.php';
 
 use function Jawira\PlantUml\encodep;
+
+include 'header.php';
+include 'functions.php';
 ?>
 
 
@@ -15,25 +18,18 @@ use function Jawira\PlantUml\encodep;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/loader.min.js"></script>
 
     <?php
-        if(isset($_GET['Pages'])){
-            $title = 'Plant UML Server';
-            switch ($_GET['Pages']) {
-                case 'ploblemsList.php':
-                    $title . '- ploblems';
-                    break;
+        $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+        $ploblem = null;
 
-                default:
-                    break;
-            }
+        if($page == 'ploblem' && isset($_GET["id"])){
+            $ploblem = getPloblemId($_GET['id']);
+            var_dump($ploblem);
         }
 
-        $uml = "@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication Response\n\nAlice -> Bob: Another authentication Request\nAlice <-- Bob: Another authentication Response\n@enduml";
-        $encode = encodep($uml);
-        $svg = file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
 
 
     ?>
-        <title><?php echo $title ?></title>
+        <title><?php echo $ploblem ? $ploblem['titile'] : 'home' ?></title>
 </head>
 <body>
 
@@ -47,7 +43,6 @@ use function Jawira\PlantUml\encodep;
             <div class='btn-container'>
                 <button class='btn'>Answer HTML</button>
                 <button class='btn'>Answer Code</button>
-                <div> <?php echo $svg ?> </div>
             </div>
         </div>
     </div>
