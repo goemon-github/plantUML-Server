@@ -32,22 +32,29 @@ td{
 
 .btn-container{
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     column-gap: 10px;
+    
 }
 
 .btn{
     font-size: 1em;
 }
 
-.editor__box{
+.editor{
+    flex: 1;
     width: 800px;
-    height: 600px;
     border: 1px solid grey;
 }
 
 .base__area{
-    padding-left: 30px;
+    padding-left: 20px;
 }
 
+.image{
+    height: auto;
+    max-width: 100%;
+    display: block;
+}

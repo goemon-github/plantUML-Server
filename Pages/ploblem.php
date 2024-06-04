@@ -18,9 +18,9 @@ include __DIR__ . '/../header.php';
     <h1 class="title">Plant UML Server</h1>
 
     <div class="display__container">
-        <div id="editor-container" class="editor__box base__area"></div>
-        <div id="preview-container" class="editor__box base__area"></div>
-        <div id="answer-container" class="editor__box base__area">
+        <div id="editor-container" class="editor base__area"></div>
+        <div id="preview-container" class="editor base__area"></div>
+        <div id="answer-container" class="editor base__area ">
             <div class='btn-container'>
                 <button class='btn'>Answer HTML</button>
                 <button class='btn'>Answer Code</button>
