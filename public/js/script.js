@@ -15,8 +15,6 @@ function init() {
 
 function ViewPreview() {
     const editorValue = window.editor.getValue();
-
-
     fetch('umlEncode.php', {
         method: 'POST',
         headers: {
@@ -30,10 +28,27 @@ function ViewPreview() {
         previewContainer.innerHTML = data['svg'];
     })
     .catch(err => {
-        console.error(err)
+        console.error(err);
     });
 
 }
+
+
+function ploblemListHandler() {
+    document.addEventListener('DOMContentLoaded', function () {
+        const basePath = '/pages/ploblem.php?';
+        const ploblemsItem = document.querySelectorAll('.ploblem-item');
+        
+        ploblemsItem.forEach(item => {
+            item.addEventListener('click', function ()  {
+                const ploblemId = this.getAttribute('data-id');
+                window.location.href = `${basePath}id=${ploblemId}`;
+            })
+        });
+
+    })
+}
+
 
 function test() {
     fetch('test.php', {
@@ -41,22 +56,19 @@ function test() {
         headers: {
             'Content-Type': 'applicaton/json',
         },
-        
     })
-
 }
 
 
 
 
-
-
-
 function main() {
+    /*
     init().then(editor => {
         ViewPreview();
     })
-
+    */
+    ploblemListHandler();
 }
 
 main();

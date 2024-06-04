@@ -1,4 +1,22 @@
 
+table {
+    border-collapse: collapse;
+}
+
+tr{
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+tr:hover{
+    background-color: rgb(245, 245, 245);
+}
+
+td{
+    padding: 5px;
+}
+
+
 .display__container{
     display: flex;
     justify-content: center;
@@ -32,3 +50,4 @@
 .base__area{
     padding-left: 30px;
 }
+
