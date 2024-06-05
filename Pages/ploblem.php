@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-use function Jawira\PlantUml\encodep;
 
 include __DIR__ . '/../common.php';
 include __DIR__ . '/../header.php';
@@ -22,8 +21,8 @@ include __DIR__ . '/../header.php';
         <div id="preview-container" class="editor base__area"></div>
         <div id="answer-container" class="editor base__area ">
             <div class='btn-container'>
-                <button class='btn'>Answer HTML</button>
-                <button class='btn'>Answer Code</button>
+                <button id='btnHtml' class='btn'>Answer HTML</button>
+                <button id='btnSvg' class='btn'>Answer Code</button>
             </div>
         </div>
     </div>

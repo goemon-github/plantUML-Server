@@ -20,8 +20,10 @@ td{
 .display__container{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     margin-top: 50px;
+    height: calc(100vh - 50px);
+
 }
 
 .title{
@@ -47,10 +49,13 @@ td{
     flex: 1;
     width: 800px;
     border: 1px solid grey;
+    height: 100%;
+    overflow: auto;
 }
 
 .base__area{
     padding-left: 20px;
+    height: 100%;
 }
 
 .image{

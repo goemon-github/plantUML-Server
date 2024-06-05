@@ -44,9 +44,16 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-function viewAnswerText(ploblem) {
+async function viewAnswerText() {
+    const ploblem = await getPloblemContent();
     const answerConteiner = document.getElementById('answer-container');
     const uml = ploblem['uml'];
+
+    const lastChildDiv = document.querySelector('#answer');
+    if (lastChildDiv) {
+        lastChildDiv.remove();
+    }
+
     const div = document.createElement('div');
     div.id = 'answer';
     div.innerText = uml;
@@ -54,7 +61,8 @@ function viewAnswerText(ploblem) {
     answerConteiner.appendChild(div);
 }
 
-async function viewAnswerSvg(ploblem) {
+async function viewAnswerSvg() {
+    const ploblem = await getPloblemContent();
     const answerConteiner = document.getElementById('answer-container');
     const svg = await fetchGetSvg(ploblem['id'], ploblem['uml']);
     const lastChildDiv = document.querySelector('#answer');
@@ -69,18 +77,25 @@ async function viewAnswerSvg(ploblem) {
     
     answerConteiner.appendChild(div);
 
-
-
-
-    
-    
-
 }
 
+function answerBtnClickHandler(){
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            if(btn.id == 'btnHtml'){
+               viewAnswerText();
+            }else if(btn.id == 'btnSvg'){
+                viewAnswerSvg();
+            }
+
+        })
+    })
+    
+}
 
 async function main() {
-    const ploblem = await getPloblemContent();
-    viewAnswerSvg(ploblem);
+    answerBtnClickHandler();
 }
 
 main();
