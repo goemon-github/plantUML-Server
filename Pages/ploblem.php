@@ -16,13 +16,19 @@ include __DIR__ . '/../header.php';
 
     <h1 class="title">Plant UML Server</h1>
 
+    <div class='previewWrapper'>
+        <button id='btnSvg' class='previewBtn'>SVG</button>
+        <button id='btnPng' class='previewBtn'>PNG</button>
+        <button id='btnAscii' class='previewBtn'>ASCII</button>
+        <button id='btnDownload' class='downloadBtn'>Download</button>
+    </div>
     <div class="display__container">
         <div id="editor-container" class="editor base__area"></div>
         <div id="preview-container" class="editor base__area"></div>
         <div id="answer-container" class="editor base__area ">
             <div class='btn-container'>
-                <button id='btnHtml' class='btn'>Answer HTML</button>
-                <button id='btnSvg' class='btn'>Answer Code</button>
+                <button id='btnHtml' class='answerBtn'>Answer HTML</button>
+                <button id='btnSvg' class='answerBtn'>Answer Code</button>
             </div>
         </div>
     </div>

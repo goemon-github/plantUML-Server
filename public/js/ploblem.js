@@ -72,7 +72,6 @@ async function viewAnswerSvg() {
 
     const div = document.createElement('div');
     div.id = 'answer';
-    div.classList.add('image');
     div.innerHTML = svg;
     
     answerConteiner.appendChild(div);
@@ -80,19 +79,26 @@ async function viewAnswerSvg() {
 }
 
 function answerBtnClickHandler(){
-    const btns = document.querySelectorAll('.btn');
+    const btns = document.querySelectorAll('.answerBtn');
     btns.forEach(btn => {
         btn.addEventListener('click', function() {
             if(btn.id == 'btnHtml'){
                viewAnswerText();
+                downloadImage();
             }else if(btn.id == 'btnSvg'){
                 viewAnswerSvg();
             }
 
         })
     })
-    
 }
+
+
+function downloadImage() {
+    const svg = document.querySelector('#preview-container svg');
+}
+
+
 
 async function main() {
     answerBtnClickHandler();

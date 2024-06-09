@@ -10,12 +10,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(isset($input['uml'])){
         $uml = $input['uml'];
+        $type = $input['type'];
         
         $encode = encodep($uml);
-        $svg = file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
-        header('Content-Type: application/json');
 
-        $json = json_encode(["svg" => $svg]);
+        switch ($type) {
+            case 'ascii':
+                $ascii = file_get_contents("http://www.plantuml.com/plantuml/txt/{$encode}");
+                $json = json_encode(["image" => $ascii]);
+                break;
+            case 'png':
+                $png = file_get_contents("http://www.plantuml.com/plantuml/png/{$encode}");
+                //$json = json_encode(["image" => base64_encode($png)]);
+                $json = json_encode(["image" => base64_encode($png)]);
+                break;
+            default:
+                $svg = file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
+                $json = json_encode(["image" => $svg]);
+                break;
+        }
+
+        header('Content-Type: application/json');
         echo $json;
     }
+
+
 }

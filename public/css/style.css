@@ -16,12 +16,15 @@ td{
     padding: 5px;
 }
 
+pre{
+    white-space: pre; 
+}
 
 .display__container{
     display: flex;
     justify-content: center;
     align-items: stretch;
-    margin-top: 50px;
+    margin-top: 1rem;
     height: calc(100vh - 50px);
 
 }
@@ -32,6 +35,23 @@ td{
     text-align: center;
 }
 
+.previewWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.previewBtn{
+    font-size: 1em;
+}
+
+.downloadBtn{
+    font-size: 1em;
+}
+
+
 .btn-container{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -41,7 +61,7 @@ td{
     
 }
 
-.btn{
+.answerBtn{
     font-size: 1em;
 }
 
