@@ -17,6 +17,7 @@ include __DIR__ . '/../header.php';
     <h1 class="title">Plant UML Server</h1>
 
     <div class='previewWrapper'>
+        <button id='back' class='previewBtn'>戻る</button>
         <button id='btnSvg' class='previewBtn'>SVG</button>
         <button id='btnPng' class='previewBtn'>PNG</button>
         <button id='btnAscii' class='previewBtn'>ASCII</button>

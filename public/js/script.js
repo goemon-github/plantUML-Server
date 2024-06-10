@@ -179,6 +179,14 @@ function createDownloadClick(downloadImage, fileName) {
     URL.revokeObjectURL(url);
 }
 
+function backBtn() {
+    const backBtn = document.getElementById('back');
+    backBtn.addEventListener('click', function () {
+        history.back();
+    })
+}
+
+
 function main() {
     /*
     init().then(editor => {
@@ -189,6 +197,7 @@ function main() {
     ploblemListHandler();
     processPreviewImage();
     downloadImage();
+    backBtn();
 }
 
 main();
