@@ -11,7 +11,17 @@ include __DIR__ . '/../header.php';
 <?php echo getHeader($page, $ploblem); ?>
 
 <?php
-   $ploblems = getPloblems();
+    $ploblems = getPloblems();
+
+    $limit = 5;
+    $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
+    $start = ($page - 1) * 5;
+
+    $total = count($ploblems);
+
+    $slicePloblems = array_slice($ploblems, $start, $limit);
+
+
 ?>
 
 <body>
@@ -25,7 +35,7 @@ include __DIR__ . '/../header.php';
             </tr>
         </thead>
         <tbody class='table__body'>
-            <?php foreach ($ploblems as $ploblem) : ?>
+            <?php foreach ($slicePloblems as $ploblem) : ?>
             <tr class="ploblem-item" data-id='<?php echo htmlspecialchars($ploblem['id'])?>'>
                     <td> 
                         <?= htmlspecialchars($ploblem['id'])?> 
@@ -44,7 +54,20 @@ include __DIR__ . '/../header.php';
     </div>
 
     <div class='pagenation'>
-
+    <?php
+        $total_pages = ceil($total / $limit);
+        if ($total_pages > 1):
+    ?>
+        <nav>
+            <ul>
+                <?php for($i = 1; $i <= $total_pages; $i++): ?>
+                <li>
+                    <a href='ploblems.php?page=<?php echo $i; ?>'><?php echo $i; ?></a>
+                </li>
+                <?php endfor; ?>
+            </ul>
+        </nav>
+    <?php endif; ?>
     </div>
 
 
